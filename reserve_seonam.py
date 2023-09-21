@@ -11,6 +11,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from time_check import *
+from screenshot import *
 
 
 # 예약 코트 번호 링크
@@ -26,6 +27,8 @@ court5_url = 'https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_
 # ready_time: 시, 분, 초를 포함한 string list
 # start_time: 시, 분, 초를 포함한 string list
 def reserve_tennis(url, date, time_selections, ready_time, start_time):
+    output_path = "./images/screenshot.png"
+    
     options = Options()
     options.add_experimental_option("detach", True)
 
@@ -39,10 +42,9 @@ def reserve_tennis(url, date, time_selections, ready_time, start_time):
     time_check(driver_time, ready_time[0], ready_time[1], ready_time[2])
 
     # 서남센터 테니스장 예약 페이지 접속
-    
     driver = webdriver.Chrome(options=options)
     driver.get(url)
-    driver.maximize_window()
+    # driver.maximize_window()
     driver.implicitly_wait(5)
 
     # "팝업 닫기" 버튼 클릭
@@ -99,6 +101,9 @@ def reserve_tennis(url, date, time_selections, ready_time, start_time):
     # 예약하기 클릭
     driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/form[2]/div[1]/div[2]/div/div/a[1]').click()
     driver.implicitly_wait(10)
+
+    #스크린샷
+    full_screenshot(driver, output_path)
 
     # 날짜 선택
     driver.find_element(By.ID, date).click()
@@ -179,7 +184,8 @@ def reserve_tennis(url, date, time_selections, ready_time, start_time):
     pg.click(reserve_loc)
 
     #alert 처리
-    while True:
+    finish = False
+    while finish:
         try:
             alert = driver.switch_to.alert
             alert.accept()
@@ -188,7 +194,7 @@ def reserve_tennis(url, date, time_selections, ready_time, start_time):
             pass
 
     #alert 처리
-    while True:
+    while finish:
         try:
             alert = driver.switch_to.alert
             alert.dismiss()
