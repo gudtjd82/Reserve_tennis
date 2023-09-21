@@ -26,14 +26,8 @@ court5_url = 'https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_
 # ready_time: 시, 분, 초를 포함한 string list
 # start_time: 시, 분, 초를 포함한 string list
 def reserve_tennis(url, date, time_selections, ready_time, start_time):
-
-    # 서남센터 테니스장 8번 예약 페이지 접속
     options = Options()
     options.add_experimental_option("detach", True)
-    driver = webdriver.Chrome(options=options)
-    driver.get(url)
-    driver.maximize_window()
-    driver.implicitly_wait(5)
 
     # 네이비즘 접속
     driver_time = webdriver.Chrome(options=options)
@@ -43,6 +37,13 @@ def reserve_tennis(url, date, time_selections, ready_time, start_time):
 
     # 시간 체크
     time_check(driver_time, ready_time[0], ready_time[1], ready_time[2])
+
+    # 서남센터 테니스장 예약 페이지 접속
+    
+    driver = webdriver.Chrome(options=options)
+    driver.get(url)
+    driver.maximize_window()
+    driver.implicitly_wait(5)
 
     # "팝업 닫기" 버튼 클릭
     driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div[1]/div/div[2]/button').click()
@@ -58,7 +59,6 @@ def reserve_tennis(url, date, time_selections, ready_time, start_time):
 
 
     # 네이버 로그인
-    temp_user_input = pyperclip.paste()
 
     user_id = 'gudtjd82'
     elem_id = driver.find_element(By.ID, 'id')
@@ -78,7 +78,6 @@ def reserve_tennis(url, date, time_selections, ready_time, start_time):
     elem_pw.click()
     ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
 
-    pyperclip.copy(temp_user_input)
     time.sleep(0.5)
 
     driver.find_element(By.ID, 'log.login').click()
