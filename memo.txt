@@ -1,0 +1,4 @@
+left-top: 1121, 731
+right-bottom: 1402, 1007
+
+Box(left=2636, top=1403, width=292, height=286)

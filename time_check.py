@@ -1,16 +1,32 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 import re
-import pyautogui as pg
 
-def time_check(driver_time, hour, min, sec):
+def time_check(driver_time, hour, minute, sec):
+        
+    time_txt = driver_time.find_element(By.ID, 'time_area').text
+    time = re.findall("[0-9]+", time_txt)
+    prev_hour = time[3]
+    prev_sec = time[5]
     while True:
-        time_txt = driver_time.find_element(By.ID, 'time_area').text
-        msec_txt = driver_time.find_element(By.ID, 'msec_area').text
-
+        try:
+            time_txt = driver_time.find_element(By.ID, 'time_area').text
+            # msec_txt = driver_time.find_element(By.ID, 'msec_area').text
+        except:
+            print("refresh!")
+            driver_time.refresh()
+            print("time_txt: ", time_txt)
         time = re.findall("[0-9]+", time_txt)
+        # if prev_sec != time[5]:
+        #     print("time_txt: ", time_txt)
+        #     prev_sec = time[5]
         # time[0]: 년 / time[1]: 월 / time[2]: 일 / time[3] 시 / time[4] 분 / time[5] 초
-        if time[3]==hour and time[4]==min and time[5]==sec:
-            msec = re.findall('[0-9]+', msec_txt)
-            if(int(msec[0]) >=0):
-                return
+        if time[3]==hour and time[4]==minute and time[5]==sec:
+            # msec = re.findall('[0-9]+', msec_txt)
+            # if(int(msec[0]) >=0):
+            print("On Time!")
+            return
+        if prev_hour != time[3]:
+            driver_time.find_element(By.ID, 'buttonFight').click()
+            prev_hour = time[3]
