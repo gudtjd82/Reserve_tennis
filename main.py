@@ -11,11 +11,13 @@ url_seonam_day[7] = 'https://url.kr/ukafhl'
 url_seonam_day[8] = 'https://url.kr/nidpj1'
 url_seonam_day[9] = 'https://url.kr/j2cua9'
 
-url_seonam_wkend[7] = 'https://url.kr/25cuso'
-url_seonam_wkend[8] = 'https://url.kr/lxahib'
+url_seonam_wkend[7] = 'https://url.kr/lxahib'
+url_seonam_wkend[8] = 'https://url.kr/25cuso'
 
-url_nanji['A'] = 'https://url.kr/zplsb2'
-url_nanji['B'] = 'https://url.kr/okcs2m'
+url_nanji['A'] = 'https://url.kr/vkga8n'
+url_nanji['B'] = 'https://url.kr/ilpo2e'
+url_nanji['C'] = 'https://url.kr/9gj2yk'
+url_nanji['D'] = 'https://url.kr/2dmhzr'
 
 active = input("conda activate macro를 입력했나요!!!! (y/n): ")
 if active == 'n':
@@ -26,6 +28,7 @@ location = int(input("예약하실 테니스장 번호를 선택해주세요. (1
 # user_pw = input("비밀번호를 입력하세요 : ")
 
 if location == 1:
+    user_id = input("아이디를 입력하세요 : ")
     i = int(input("예약하실 코트 번호를 입력하세요 : "))
     date_in = input("날짜를 입력하세요. (ex. 20230920) : ")
     timeSel_in = input("원하는 파트를 입력하세요. (0=>6시, 1=>7시) : ")
@@ -58,9 +61,9 @@ if location == 1:
         start_time = '0'
     
     if day_weekend.upper() == 'N':
-        reserve_seonam(url_seonam_day[i], date, time_selection, light_use, ready_time, start_time)
+        reserve_seonam(user_id, url_seonam_day[i], date, time_selection, light_use, ready_time, start_time)
     else:
-        reserve_seonam(url_seonam_wkend[i], date, time_selection, light_use, ready_time, start_time)
+        reserve_seonam(user_id, url_seonam_wkend[i], date, time_selection, light_use, ready_time, start_time)
 
 elif location == 2:
     user_id = input("아이디를 입력하세요 : ")

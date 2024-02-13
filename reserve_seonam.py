@@ -17,7 +17,6 @@ from card_pay import *
 # date = 'calendar_20230914'
 
 # 아이디 비번
-user_id = 'gudtjd82'
 user_pw = 'tjdgus02@@'
 
 # 네이비즘 주소
@@ -31,7 +30,8 @@ finish = True
 # time_selections: 시작 시간을 포함한 string list
 # ready_time: 시, 분, 초를 포함한 string list
 # start_time: 시, 분, 초를 포함한 string list
-def reserve_seonam(url, date, time_selections, light_use, ready_time, start_time):
+def reserve_seonam(user_id, url, date, time_selections, light_use, ready_time, start_time):
+    user_id = user_id
     # 스크린샷 저장 위치
     reserve_path = "./images/reserve1.png"
     time_path = "./images/time1.png"
@@ -54,6 +54,8 @@ def reserve_seonam(url, date, time_selections, light_use, ready_time, start_time
         # driver_time.find_element(By.ID, 'msec_check').click()
 
         # 시간 체크
+        driver_time.find_element(By.CSS_SELECTOR, '#time_area').click()
+        time.sleep(1)
         time_check(driver_time, ready_time[0], ready_time[1], ready_time[2])
         # 시간 스크린샷
         # time_path = full_screenshot(driver_time, time_path)
@@ -209,6 +211,8 @@ def reserve_seonam(url, date, time_selections, light_use, ready_time, start_time
         except:
             pass
 
+    if user_id != 'gudtjd82':
+        exit("인증번호 전송까지 완료")
 
     # 인증번호 복사
     cp_msg()
@@ -222,19 +226,7 @@ def reserve_seonam(url, date, time_selections, light_use, ready_time, start_time
     driver.implicitly_wait(5)
     driver.find_element(By.CSS_SELECTOR, '#form_fnCon').click()
     driver.implicitly_wait(5)
-
     time.sleep(0.6)
-    # reserve_loc = pg.locateOnScreen('./images/reserve_region.png', confidence=0.9)
-    # print(reserve_loc)
-    # pg.moveTo(reserve_loc.left, reserve_loc.top)
-
-    # reserve_loc = pg.locateCenterOnScreen('./images/reserve_button.png', confidence=0.5, region=(1550, 730, 400, 400))
-    # pg.moveTo(reserve_loc)
-    # print(reserve_loc)
-
-    # 예약하기 버튼 찾아서 클릭
-    ## 32인치 모니터
-    # reserve_loc = pg.locateCenterOnScreen('./images/reserve_button.png', confidence=0.5, region=(1550, 730, 400, 400))
 
     # 예약하기 클릭
     book_btn_elem = driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.right_box > div.info_wrap > ul')
@@ -285,8 +277,8 @@ def reserve_seonam(url, date, time_selections, light_use, ready_time, start_time
             pass
     driver.find_element(By.CSS_SELECTOR, '#commonForm > div > div.right_box > div > div.common_btn_box > button').click()
 
-    time.sleep(3)
-    
+    time.sleep(10)
+
     if pg.size() == (1680, 1050):
         card_pay_laptop()
     else:

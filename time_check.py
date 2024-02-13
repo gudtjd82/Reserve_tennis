@@ -8,7 +8,7 @@ def time_check(driver_time, hour, minute, sec):
     time_txt = driver_time.find_element(By.ID, 'time_area').text
     time = re.findall("[0-9]+", time_txt)
     prev_hour = time[3]
-    prev_sec = time[5]
+    # prev_sec = time[5]
     while True:
         try:
             time_txt = driver_time.find_element(By.ID, 'time_area').text
@@ -16,6 +16,8 @@ def time_check(driver_time, hour, minute, sec):
         except:
             print("refresh!")
             driver_time.refresh()
+            driver_time.implicitly_wait(10)
+            driver_time.find_element(By.CSS_SELECTOR, '#time_area').click()
             print("time_txt: ", time_txt)
         time = re.findall("[0-9]+", time_txt)
         # if prev_sec != time[5]:
@@ -29,4 +31,5 @@ def time_check(driver_time, hour, minute, sec):
             return
         if prev_hour != time[3]:
             driver_time.find_element(By.ID, 'buttonFight').click()
+            driver_time.find_element(By.CSS_SELECTOR, '#time_area').click()
             prev_hour = time[3]

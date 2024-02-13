@@ -10,5 +10,14 @@ from screenshot import *
 from get_location import *
 from get_location import *
 
-time.sleep(2)
-print(pg.size() == (1680, 1050))
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+
+time_options = webdriver.ChromeOptions()
+time_options.add_experimental_option("detach", True)
+time_options.add_argument('--blink-settings=imagesEnabled=false')
+
+
+driver_time = webdriver.Chrome(options=time_options)
+
+driver_time.get('http://time.navyism.com/?host=https%3A%2F%2Fyeyak.seoul.go.kr%2Fweb%2Fmain.do')

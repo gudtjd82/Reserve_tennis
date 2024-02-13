@@ -11,19 +11,19 @@ def card_pay_desktop():
 
     # 다음
     pg.click(1577, 1049)
-    time.sleep(2)
+    time.sleep(5)
 
     # 다른결제 선택
     pg.click(1376, 670)
-    time.sleep(1)
+    time.sleep(2)
 
     # 일반 결제 선택
     pg.click(1168, 826)
-    time.sleep(1)
+    time.sleep(2)
 
     # 카드번호 입력창 클릭
     pg.click(1208, 737)
-    time.sleep(0.3)
+    time.sleep(1)
 
     # 카드번호 입력 0 2 3 4 5 6 7 8 9
     pg.typewrite('5')
@@ -31,7 +31,7 @@ def card_pay_desktop():
     pg.typewrite('2')
     pg.typewrite('8')
 
-    time.sleep(0.3)
+    time.sleep(1)
     find_7(True, (1206, 736, 271, 184))
     time.sleep(0.3)
     find_9(True, (1206, 736, 271, 184))
@@ -50,16 +50,16 @@ def card_pay_desktop():
     find_0(True, (1206, 736, 271, 184))
     time.sleep(0.3)
 
-    time.sleep(0.5)
+    time.sleep(1)
     pg.typewrite('3')
     pg.typewrite('4')
     pg.typewrite('9')
     pg.typewrite('6')
-    time.sleep(0.3)
+    time.sleep(1)
 
     # cvc번호 입력창 클링
     pg.click(1206, 787)
-    time.sleep(0.2)
+    time.sleep(1)
 
     # cvc번호 입력
     find_6(True, (1200, 836, 215, 113))
@@ -69,10 +69,11 @@ def card_pay_desktop():
     find_0(True, (1200, 836, 215, 113))
     time.sleep(0.3)
     pg.click(1350, 928)
+    time.sleep(1)
 
     # 다음 클릭
     pg.click(1373, 973)
-    time.sleep(1)
+    time.sleep(2)
 
 
     # 입력창 클릭
@@ -80,27 +81,27 @@ def card_pay_desktop():
     time.sleep(1)
 
     # 비밀번호 입력
-    pg.click(get_location(True, './images/password/d.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/d.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/y.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/y.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/d.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/d.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/w.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/w.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/n.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/n.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/1.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/1.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/1.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/1.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/2.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/2.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/4.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/4.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
     pg.click(1141, 795)
     time.sleep(0.3)
-    pg.click(get_location(True, './images/password/$.png', confidence=0.99, region=(1044, 631, 462, 220)))
+    pg.click(get_location(True, './images/password/desktop/$.png', confidence=0.99, region=(1044, 631, 462, 220)))
     time.sleep(0.3)
     pg.click(1452, 796)
     pg.click(1376, 974)
@@ -116,19 +117,19 @@ def card_pay_laptop():
 
     # 다음
     pg.click(1135, 858)
-    time.sleep(2)
+    time.sleep(5)
 
     # 다른결제 선택
     pg.click(932, 478)
-    time.sleep(1)
+    time.sleep(2)
 
     # 일반 결제 선택
     pg.click(807, 631)
-    time.sleep(1)
+    time.sleep(2)
 
     # 카드번호 입력창 클릭
     pg.click(768, 542)
-    time.sleep(0.3)
+    time.sleep(1)
 
     # 카드번호 입력 0 2 3 4 5 6 7 8 9
     pg.typewrite('5')
@@ -136,7 +137,7 @@ def card_pay_laptop():
     pg.typewrite('2')
     pg.typewrite('8')
 
-    time.sleep(0.3)
+    time.sleep(1)
     find_7(False, (756, 537, 294, 204))
     time.sleep(0.3)
     find_9(False, (756, 537, 294, 204))
@@ -153,18 +154,17 @@ def card_pay_laptop():
     find_5(False, (934, 589, 86, 91))
     time.sleep(0.3)
     find_0(False, (756, 537, 294, 204))
-    time.sleep(0.3)
+    time.sleep(1)
 
-    time.sleep(0.5)
     pg.typewrite('3')
     pg.typewrite('4')
     pg.typewrite('9')
     pg.typewrite('6')
-    time.sleep(0.3)
+    time.sleep(1)
 
     # cvc번호 입력창 클링
     pg.click(763, 592)
-    time.sleep(0.2)
+    time.sleep(1)
 
     # cvc번호 입력
     find_6(False, (720, 594, 270, 175))
@@ -174,6 +174,7 @@ def card_pay_laptop():
     find_0(False, (720, 594, 270, 175))
     time.sleep(0.3)
     pg.click(904, 734)
+    time.sleep(1)
 
     # 다음 클릭
     pg.click(934, 781)
@@ -214,4 +215,7 @@ def card_pay_laptop():
 
 if __name__ == "__main__":
     time.sleep(3)
-    card_pay_laptop()
+    if pg.size() == (1680, 1050):
+        card_pay_laptop()
+    else:
+        card_pay_desktop()

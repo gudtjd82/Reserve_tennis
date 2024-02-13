@@ -38,7 +38,11 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
     options = Options()
     options.add_experimental_option("detach", True)
 
-    driver_time = webdriver.Chrome(options=options)
+    time_options = webdriver.ChromeOptions()
+    time_options.add_experimental_option("detach", True)
+    time_options.add_argument('--blink-settings=imagesEnabled=false')
+
+    driver_time = webdriver.Chrome(options=time_options)
     if ready_time != '0':
         # 네이비즘 접속
         driver_time.get(navyism_url)
@@ -48,6 +52,8 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
         # driver_time.find_element(By.ID, 'msec_check').click()
 
         # 시간 체크
+        driver_time.find_element(By.CSS_SELECTOR, '#time_area').click()
+        time.sleep(1)
         time_check(driver_time, ready_time[0], ready_time[1], ready_time[2])
         # 시간 스크린샷
         # time_path = full_screenshot(driver_time, time_path)
@@ -104,6 +110,7 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
     
     #스크린샷
     reserve_path = full_screenshot(driver, reserve_path)
+
     # 예약하기 클릭
     i = 0
     while True:
@@ -123,6 +130,9 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
             i += 1
 
     driver.implicitly_wait(5)
+
+    # 다음달로 넘기기
+    driver.find_element(By.CSS_SELECTOR, '#calendar > div > button').click()
 
     # 시간 선택
     driver.find_element(By.ID, date).click()
@@ -159,6 +169,8 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
         except:
             pass
 
+    if user_id != 'gudtjd82':
+        exit("인증번호 전송까지 완료")
 
     # 인증번호 복사
     cp_msg()
@@ -172,11 +184,12 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
     driver.implicitly_wait(5)
     driver.find_element(By.CSS_SELECTOR, '#form_fnCon').click()
     driver.implicitly_wait(5)
+    time.sleep(0.6)
 
     # 예약하기 클릭
     driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.right_box > div > div.common_btn_box > button').click()
 
-    #alert 처리
+    # alert 처리
     while finish:
         try:
             alert = driver.switch_to.alert
@@ -184,12 +197,5 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
             break
         except:
             pass
-    
-    #alert 처리
-    while finish:
-        try:
-            alert = driver.switch_to.alert
-            alert.dismiss()
-            break
-        except:
-            pass
+
+    print("done!")
