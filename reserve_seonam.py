@@ -36,16 +36,12 @@ def reserve_seonam(user_id, url, date, time_selections, light_use, ready_time, s
     reserve_path = "./images/reserve1.png"
     time_path = "./images/time1.png"
 
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option("detach", True)
-
-    time_options = webdriver.ChromeOptions()
-    time_options.add_experimental_option("detach", True)
-    time_options.add_argument('--blink-settings=imagesEnabled=false')
-    
-
-    driver_time = webdriver.Chrome(options=time_options)
     if ready_time != '0':
+        time_options = webdriver.ChromeOptions()
+        time_options.add_experimental_option("detach", True)
+        time_options.add_argument('--blink-settings=imagesEnabled=false')
+        driver_time = webdriver.Chrome(options=time_options)
+
         # 네이비즘 접속
         driver_time.get(navyism_url)
         WebDriverWait(driver_time, 3).until(EC.presence_of_element_located((By.ID, 'time_area')))
@@ -63,6 +59,8 @@ def reserve_seonam(user_id, url, date, time_selections, light_use, ready_time, s
     # 서남센터 테니스장 예약 페이지 접속
     # PROXY = "15.204.161.192:18080"
     # options.add_argument(f'--proxy-server={PROXY}')
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("detach", True)
     driver = webdriver.Chrome(options=options)
     # driver.get("http://{}:{}".format(PROXY_HOST, PROXY_PORT))
     driver.get(url)
@@ -76,11 +74,6 @@ def reserve_seonam(user_id, url, date, time_selections, light_use, ready_time, s
     # "로그인" 버튼 클릭
     driver.find_element(By.XPATH, '/html/body/div/header/div[1]/div/div[1]/a').click()
     driver.implicitly_wait(5)
-
-    # "네이버 아이디로 로그인" 버튼 클릭
-    # driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div/div/div[1]/form/ul[2]/li[1]/a/span').click()
-    # driver.implicitly_wait(10)
-
 
     # 로그인
     elem_id = driver.find_element(By.ID, 'userid')
@@ -112,7 +105,7 @@ def reserve_seonam(user_id, url, date, time_selections, light_use, ready_time, s
     print("코드 실행 시간 :", time.time() - start)  
     
     #스크린샷
-    reserve_path = full_screenshot(driver, reserve_path)
+    # reserve_path = full_screenshot(driver, reserve_path)
     # 예약하기 클릭
 
     i = 0
@@ -155,8 +148,8 @@ def reserve_seonam(user_id, url, date, time_selections, light_use, ready_time, s
         except:
             print("Error:", time_str, "가 없음")
             # 스크린샷
-            reserve_path = full_screenshot(driver, reserve_path)
-            time_path = full_screenshot(driver_time, time_path)
+            # reserve_path = full_screenshot(driver, reserve_path)
+            # time_path = full_screenshot(driver_time, time_path)
 
     # 동의합니다
     try:
@@ -210,6 +203,7 @@ def reserve_seonam(user_id, url, date, time_selections, light_use, ready_time, s
             break
         except:
             pass
+
 
     if user_id != 'gudtjd82':
         exit("인증번호 전송까지 완료")

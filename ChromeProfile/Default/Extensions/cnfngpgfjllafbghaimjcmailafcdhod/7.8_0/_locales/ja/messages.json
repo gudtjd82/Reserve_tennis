@@ -1,0 +1,78 @@
+{
+   "appDescription": {
+      "description": "このアプリは、マウスドラッグやマウス右クリックが禁止されているサイトでこれらの機能を可能にするアプリです。",
+      "message": "このアプリは、マウスドラッグやマウス右クリックが禁止されているサイトでこれらの機能を可能にするアプリです。"
+   },
+   "appName": {
+      "description": "ドラッグフリー（マウスドラッグ＆マウス右クリック解除）",
+      "message": "ドラッグフリー（マウスドラッグ＆マウス右クリック解除）"
+   },
+   "string001": {
+      "description": "ドラッグフリー",
+      "message": "ドラッグフリー"
+   },
+   "string002": {
+      "description": "自動",
+      "message": "自動"
+   },
+   "string003": {
+      "description": "手動",
+      "message": "手動"
+   },
+   "string004": {
+      "description": "保存",
+      "message": "保存"
+   },
+   "string005": {
+      "description": "制限解除",
+      "message": "制限解除"
+   },
+   "string006": {
+      "description": "ショートカットキー指定",
+      "message": "ショートカットキー指定"
+   },
+   "string007": {
+      "description": "自動状態で解除されない場合は、ショートカットキーを一度押してみてください！",
+      "message": "自動状態で解除されない場合は、ショートカットキーを一度押してみてください！"
+   },
+   "string008": {
+      "description": "ショートカットキーを指定してください。",
+      "message": "ショートカットキーを指定してください。"
+   },
+   "string009": {
+      "description": "[手動状態]を推奨します。",
+      "message": "[手動状態]を推奨します。"
+   },
+   "string010": {
+      "description": "制限を解除しました。",
+      "message": "制限を解除しました。"
+   },
+   "string011": {
+      "description": "文字数",
+      "message": "文字数"
+   },
+   "string012": {
+      "description": "スペース含む",
+      "message": "スペース含む"
+   },
+   "string013": {
+      "description": "テキストを貼り付けてください。",
+      "message": "テキストを貼り付けてください。"
+   },
+   "string014": {
+      "description": "文字数",
+      "message": "文字数"
+   },
+   "string015": {
+      "description": "かくす",
+      "message": "かくす"
+   },
+   "string016": {
+      "description": "開発者向けの広告を見る",
+      "message": "開発者向けの広告を見る"
+   },
+   "string017": {
+      "description": "広告のお問い合わせ",
+      "message": "広告のお問い合わせ"
+   }
+}

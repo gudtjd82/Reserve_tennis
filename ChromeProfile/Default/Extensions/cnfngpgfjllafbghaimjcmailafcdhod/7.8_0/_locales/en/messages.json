@@ -1,0 +1,78 @@
+{
+   "appDescription": {
+      "description": "This app enables mouse dragging and right-clicking on sites where these functions are disabled.",
+      "message": "This app enables mouse dragging and right-clicking on sites where these functions are disabled."
+   },
+   "appName": {
+      "description": "DragFree (Mouse Drag & Right Click Release)",
+      "message": "DragFree (Mouse Drag & Right Click Release)"
+   },
+   "string001": {
+      "description": "DragFree",
+      "message": "DragFree"
+   },
+   "string002": {
+      "description": "Auto",
+      "message": "Auto"
+   },
+   "string003": {
+      "description": "Manual",
+      "message": "Manual"
+   },
+   "string004": {
+      "description": "Save",
+      "message": "Save"
+   },
+   "string005": {
+      "description": "Unblock",
+      "message": "Unblock"
+   },
+   "string006": {
+      "description": "Assign Shortcut Key",
+      "message": "Assign Shortcut Key"
+   },
+   "string007": {
+      "description": "If it's not unblocked in automatic mode, try pressing the shortcut key!",
+      "message": "If it's not unblocked in automatic mode, try pressing the shortcut key!"
+   },
+   "string008": {
+      "description": "Please assign a shortcut key.",
+      "message": "Please assign a shortcut key."
+   },
+   "string009": {
+      "description": "[Manual Mode] is recommended.",
+      "message": "[Manual Mode] is recommended."
+   },
+   "string010": {
+      "description": "Restriction has been lifted.",
+      "message": "Restriction has been lifted."
+   },
+   "string011": {
+      "description": "Character count",
+      "message": "Character count"
+   },
+   "string012": {
+      "description": "Including Spaces",
+      "message": "Including Spaces"
+   },
+   "string013": {
+      "description": "Paste the Text.",
+      "message": "Paste the Text."
+   },
+   "string014": {
+      "description": "Character count",
+      "message": "Character count"
+   },
+   "string015": {
+      "description": "Hide",
+      "message": "Hide"
+   },
+   "string016": {
+      "description": "View Ads for Developers",
+      "message": "View Ads for Developers"
+   },
+   "string017": {
+      "description": "Ad Inquiry",
+      "message": "Ad Inquiry"
+   }
+}

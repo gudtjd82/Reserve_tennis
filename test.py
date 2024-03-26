@@ -10,14 +10,9 @@ from screenshot import *
 from get_location import *
 from get_location import *
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option("detach", True)
-
-time_options = webdriver.ChromeOptions()
-time_options.add_experimental_option("detach", True)
-time_options.add_argument('--blink-settings=imagesEnabled=false')
-
-
-driver_time = webdriver.Chrome(options=time_options)
-
-driver_time.get('http://time.navyism.com/?host=https%3A%2F%2Fyeyak.seoul.go.kr%2Fweb%2Fmain.do')
+time.sleep(2)
+pg.click(256, 188)
+pg.dragTo(415, 188, 0.2, button='left')
+for _ in range(3):
+        pg.click(320, 188)
+        time.sleep(0.1)

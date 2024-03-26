@@ -1,0 +1,35 @@
+{
+   "action": {
+      "default_icon": "./images/icon.png",
+      "default_popup": "main.html",
+      "default_title": "Drag Free"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "commands": {
+      "releasedrag": {
+         "description": "DragFree Hotkey",
+         "suggested_key": {
+            "default": "Alt+1",
+            "mac": "Alt+1"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "releaseDrag.js" ],
+      "matches": [ "*://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_appDescription__",
+   "host_permissions": [ "*://*/*" ],
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlKrnragSnR9tLf216C5Xv5jxvzZ///cFoFKZAOuWZjDbGvt4anmAk7Qg9sNNHuATMYf18fGv2uSR2zInBAWY1ejOEZHxO4mS67GsiCkHGgBNbLZnErUaUb97SFDDrmgkWq3hCRqfCAY9oezq3hwC/kNExlpFZRDTpKdXhEmnlKBWsQBR4nvd1kaAHM44g+EeUgjlYIJf5JCyehLbTLR7mVOE/MYXzzSU355z1Vok9lWPqA/jS17mHj9Al2VoKqmGiFOj4ILZfh31cbmpVxYGm5S4TmWVJFvgCPLYPtcBhgAT4QwfLcQbH1qH5T00x7II9m3QHHn0shHF6F/nHXeYIwIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_appName__",
+   "permissions": [ "activeTab", "storage" ],
+   "short_name": "Drag-Free",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "7.8"
+}

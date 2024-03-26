@@ -1,0 +1,30 @@
+{
+   "action": {
+      "default_icon": "icon-34.png",
+      "default_popup": "popup.html"
+   },
+   "background": {
+      "service_worker": "background.bundle.js"
+   },
+   "content_scripts": [ {
+      "js": [ "contentScript.bundle.js" ],
+      "matches": [ "https://chat.openai.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "default_locale": "ko",
+   "description": "__MSG_appDesc__",
+   "host_permissions": [ "https://www.google-analytics.com/*", "https://www.google.com/search" ],
+   "icons": {
+      "128": "icon-128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnDxsd9RlIOSvsJkF+KTel1H16dKImOUv2CCQZXPsBwShz8g8hED6l17exhtt0VQUtbxOIinAxaOLeRdLf8hL/ePn7bGcv/QFu+NNabXkcxnAIhjZPxJ3CuRIG4BZNKHCfryx+jLDQU+aon3x2A2vV/XX0wGlWfXmurzT4gouhHmxidFuWquX8Xid9+jeGtQDUR7Np/4ICF1C7BFqu6xhBvwRIK16DCasWE6nN1v5Bh8QD6YpXPabLiWGMsOlX3y4IdO8I9UPFfkJXTdPikPLFTgVchlnLoVn3qLrUH+/mcA7QOmoMTugbZWp5vP6OUUzACZKeEuaelzthsAjjRvl7wIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_appName__",
+   "permissions": [  ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.2.9",
+   "web_accessible_resources": [ {
+      "matches": [ "https://chat.openai.com/*" ],
+      "resources": [ "icon-128.png", "icon-34.png", "nowTranslate.html", "static/*" ]
+   } ]
+}

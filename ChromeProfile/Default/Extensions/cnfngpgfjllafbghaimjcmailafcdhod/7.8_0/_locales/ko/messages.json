@@ -1,0 +1,78 @@
+{
+   "appDescription": {
+      "description": "이 앱은 마우스 드래그나 마우스 우클릭이 방지되어 있는 사이트에서 해당 기능을 가능하게 해주는 앱입니다.(글자수를 세는 기능이 추가되었습니다.)",
+      "message": "이 앱은 마우스 드래그나 마우스 우클릭이 방지되어 있는 사이트에서 해당 기능을 가능하게 해주는 앱입니다.(글자수를 세는 기능이 추가되었습니다.)"
+   },
+   "appName": {
+      "description": "드래그프리(마우스 드래그 & 마우스 우클릭 해제 & 글자수 세기)",
+      "message": "드래그프리(마우스 드래그 & 마우스 우클릭 해제 & 글자수 세기)"
+   },
+   "string001": {
+      "description": "드래그프리",
+      "message": "드래그프리"
+   },
+   "string002": {
+      "description": "자동",
+      "message": "자동"
+   },
+   "string003": {
+      "description": "수동",
+      "message": "수동"
+   },
+   "string004": {
+      "description": "저장",
+      "message": "저장"
+   },
+   "string005": {
+      "description": "제한풀기",
+      "message": "제한풀기"
+   },
+   "string006": {
+      "description": "단축키지정",
+      "message": "단축키지정"
+   },
+   "string007": {
+      "description": "자동상태에서도 해제되지 않은 경우는, 단축키 한번 눌러보세요!",
+      "message": "자동상태에서도 해제되지 않은 경우는, 단축키 한번 눌러보세요!"
+   },
+   "string008": {
+      "description": "단축키를 지정하세요.",
+      "message": "단축키를 지정하세요."
+   },
+   "string009": {
+      "description": "[수동 상태]를 권장합니다.",
+      "message": "[수동 상태]를 권장합니다."
+   },
+   "string010": {
+      "description": "제한을 풀었습니다.",
+      "message": "제한을 풀었습니다."
+   },
+   "string011": {
+      "description": "공백제외 글자수",
+      "message": "공백제외 글자수"
+   },
+   "string012": {
+      "description": "공백포함 글자수",
+      "message": "공백포함 글자수"
+   },
+   "string013": {
+      "description": "텍스트를 붙여넣으세요.",
+      "message": "텍스트를 붙여넣으세요."
+   },
+   "string014": {
+      "description": "글자수 세기",
+      "message": "글자수 세기"
+   },
+   "string015": {
+      "description": "숨기기",
+      "message": "숨기기"
+   },
+   "string016": {
+      "description": "개발자를 위한 광고 보기",
+      "message": "개발자를 위한 광고 보기"
+   },
+   "string017": {
+      "description": "광고문의",
+      "message": "광고문의"
+   }
+}

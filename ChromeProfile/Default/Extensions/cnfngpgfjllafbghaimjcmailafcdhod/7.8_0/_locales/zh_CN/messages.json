@@ -1,0 +1,78 @@
+{
+   "appDescription": {
+      "description": "这款应用能在禁止鼠标拖放或鼠标右键的网站上启用这些功能。（已增加字数统计功能。）",
+      "message": "这款应用能在禁止鼠标拖放或鼠标右键的网站上启用这些功能。（已增加字数统计功能。）"
+   },
+   "appName": {
+      "description": "拖放自由（鼠标拖放 & 鼠标右键解锁 & 字数统计）",
+      "message": "拖放自由（鼠标拖放 & 鼠标右键解锁 & 字数统计）"
+   },
+   "string001": {
+      "description": "拖放自由",
+      "message": "拖放自由"
+   },
+   "string002": {
+      "description": "自动",
+      "message": "自动"
+   },
+   "string003": {
+      "description": "手动",
+      "message": "手动"
+   },
+   "string004": {
+      "description": "保存",
+      "message": "保存"
+   },
+   "string005": {
+      "description": "解除限制",
+      "message": "解除限制"
+   },
+   "string006": {
+      "description": "指定快捷键",
+      "message": "指定快捷键"
+   },
+   "string007": {
+      "description": "如果在自动状态下未解除限制，请尝试按一下快捷键！",
+      "message": "如果在自动状态下未解除限制，请尝试按一下快捷键！"
+   },
+   "string008": {
+      "description": "请指定快捷键。",
+      "message": "请指定快捷键。"
+   },
+   "string009": {
+      "description": "建议使用[手动状态]。",
+      "message": "建议使用[手动状态]。"
+   },
+   "string010": {
+      "description": "已解除限制。",
+      "message": "已解除限制。"
+   },
+   "string011": {
+      "description": "不含空格的字数",
+      "message": "不含空格的字数"
+   },
+   "string012": {
+      "description": "包含空格的字数",
+      "message": "包含空格的字数"
+   },
+   "string013": {
+      "description": "请粘贴文本。",
+      "message": "请粘贴文本。"
+   },
+   "string014": {
+      "description": "统计字数",
+      "message": "统计字数"
+   },
+   "string015": {
+      "description": "隐藏",
+      "message": "隐藏"
+   },
+   "string016": {
+      "description": "查看开发者广告",
+      "message": "查看开发者广告"
+   },
+   "string017": {
+      "description": "广告咨询",
+      "message": "广告咨询"
+   }
+}

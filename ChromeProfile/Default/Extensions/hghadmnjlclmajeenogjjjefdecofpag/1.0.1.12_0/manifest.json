@@ -1,0 +1,21 @@
+{
+   "author": "KICA",
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "contentscript.js" ],
+      "matches": [ "*://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "한국 정보인증의 PC보안 기능을 사용하기 위한 확장 프로그램입니다.",
+   "homepage_url": "https://www.signgate.com/",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoablvAPHOPc1W2o5MT59smA2yTArjeLj5tAcuBFypHG162+qPG3F3Sqbfrypdqtco7L6WtfwEVqKT4QcJZj3Z4Qqe/nEulRYRqW/B4rDSj3bDKlkNfZP/CYuO4UHmDUbmO/bL4N/SsaQUyILCwVpxAAWyfHwr7440kfbnebnlOmtQ0IXocaryu2s9T/seZPhyqyiU40bhPqM+kCZWnq49yv5YLpQI6Ek6mFgnYnTfcLS/ScifCah92gtwiKd5lq8KJxCVaEYJy4++F5GgzT+aRRUDMb/iL3g24ouCxNEuUvCYaP1FjDkVt/R79sjWAjMN5gxz8+jxhshTCqupR0ucwIDAQAB",
+   "manifest_version": 2,
+   "name": "SecuKit NX",
+   "permissions": [ "*://*/*", "nativeMessaging", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.1.12"
+}

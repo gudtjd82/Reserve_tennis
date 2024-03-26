@@ -1,0 +1,22 @@
+{
+   "browser_action": {
+      "default_popup": "settings.html",
+      "default_title": "title"
+   },
+   "content_scripts": [ {
+      "js": [ "js/start.js" ],
+      "matches": [ "*://portal.hanyang.ac.kr/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "한양대 포탈을 편리하게",
+   "icons": {
+      "128": "img/logo_128.png",
+      "64": "img/logo_64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyuuV2A++sq7livHfpMI6If/cE5ZZUf40VH9RmCO0U+19j32W9u5TmMHW2EZZdPco+Z5BUHRF+xoEofgxbTuEPc+P4/U1KyaIwbMKpE1oMPf9a//t+iQDUj1YrljrCiQ0OnXtIIb2S2qY++0SxusNFW7QbZ8s1IukULmE3A3GxcMsXVLSAfkPKI/kSf0xLEQ9pnFSrb1Vcz4/OBdM9GvwMDFA7Qz/J/Tkpyfra7TDjfpLPXop4lzjWXrh2lr4DZr5Zoey8KwpUQtTvSdSWPDveKwx3Hzt6hDykwWXsSKUGAvhhXC8o/+/9FrlYZ6pnc1zjldkZ2s2tdPSvV46w1DbPwIDAQAB",
+   "manifest_version": 2,
+   "name": "HYU Portal helper",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.5"
+}

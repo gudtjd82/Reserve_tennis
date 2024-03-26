@@ -11,6 +11,7 @@ from time_check import *
 from screenshot import *
 from cp_msg import *
 from card_pay import *
+from captchaCracker import *
 
 # 예약 날짜
 # date = 'calendar_20230914'
@@ -35,8 +36,6 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
     reserve_path = "./images/reserve1.png"
     time_path = "./images/time1.png"
 
-    options = Options()
-    options.add_experimental_option("detach", True)
 
     time_options = webdriver.ChromeOptions()
     time_options.add_experimental_option("detach", True)
@@ -59,6 +58,8 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
         # time_path = full_screenshot(driver_time, time_path)
 
     # 서남센터 테니스장 예약 페이지 접속
+    options = Options()
+    options.add_experimental_option("detach", True)
     driver = webdriver.Chrome(options=options)
     driver.get(url)
     driver.maximize_window()
@@ -109,13 +110,13 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
     # driver.find_element(By.CSS_SELECTOR, '#calendar > div > button').click()
     
     #스크린샷
-    reserve_path = full_screenshot(driver, reserve_path)
+    # reserve_path = full_screenshot(driver, reserve_path)
 
     # 예약하기 클릭
     i = 0
     while True:
         reserve_button = driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/form[2]/div[1]/div[2]/div/div/a[1]')
-        if i == 5:
+        if i == 7:
             exit("이미 다 찼음")
         elif reserve_button.text == "예약하기":
             reserve_button.click()
@@ -132,7 +133,7 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
     driver.implicitly_wait(5)
 
     # 다음달로 넘기기
-    driver.find_element(By.CSS_SELECTOR, '#calendar > div > button').click()
+    # driver.find_element(By.CSS_SELECTOR, '#calendar > div > button').click()
 
     # 시간 선택
     driver.find_element(By.ID, date).click()
@@ -145,8 +146,8 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
         except:
             print("Error:", time_str, "가 없음")
             # 스크린샷
-            reserve_path = full_screenshot(driver, reserve_path)
-            time_path = full_screenshot(driver_time, time_path)
+            # reserve_path = full_screenshot(driver, reserve_path)
+            # time_path = full_screenshot(driver_time, time_path)
 
     # 동의합니다
     try:
@@ -158,7 +159,10 @@ def reserve_nanji(user_id, url, date, time_selections, ready_time, start_time):
     driver.find_element(By.CSS_SELECTOR, '#user_cnt_area > div > div:nth-child(1) > div > div > div > button.user_plus').click()
 
     # 인증번호 발송
-    driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div:nth-child(2) > button').click()
+    # driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div:nth-child(2) > button').click()
+
+    # captcha 새로고침
+    driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div > div.captcha_attr > button.btn_refresh').click()
 
     # alert 처리
     while True:

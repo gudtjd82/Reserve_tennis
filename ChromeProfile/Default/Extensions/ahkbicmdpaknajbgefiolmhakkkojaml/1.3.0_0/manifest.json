@@ -1,0 +1,18 @@
+{
+   "browser_action": {
+      "default_popup": "view/popup.html"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "/src/script.js" ],
+      "matches": [ "https://learning.hanyang.ac.kr/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "LearningX Helper Made By Rn",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArrgcFsycliJHboH9R2tFys2odhPLzH/5e4WVAXbj2/d1UhTiMVeg+/vRkQuu2fdAAzAimgm8PwWxEY2xYL18toRneYSkfTwiJNeRolt6a8rVNy3e+maRiXrOQ+aGVBY1E8OG4boh/jH2q1MV5MkrnMMP2fSBLNPp+suPwg3FCpW7Gx3roZBniJIsHGHu7Cs5gVbrq6/j72705H2Sasda3lvaLpsS1f6fRtDoNJNpI0MEgCYPmS+tAHsHy/ISpSHK6nskklLn1bjjXPKHMgxn78jATiadbGTJbhjC5oHVOE7xexuJcGG4bQiQ90pNQ6n60IVrsTHh2S+ymJXrIOY+vQIDAQAB",
+   "manifest_version": 2,
+   "name": "HYU LMS HELPER",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.3.0",
+   "web_accessible_resources": [ "/src/content.js" ]
+}

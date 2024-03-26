@@ -1,0 +1,202 @@
+{
+   "answer_language": {
+      "message": "Languages to be answered"
+   },
+   "answer_translate": {
+      "message": "Translate answers"
+   },
+   "answer_translate_detail": {
+      "message": "Translate the answer"
+   },
+   "appDesc": {
+      "description": "This is a translator that translates questions into English and answers into various languages when you use ChatGPT",
+      "message": "This is a translator that translates questions into English and answers into various languages when you use ChatGPT"
+   },
+   "appName": {
+      "description": "Prompt Genie: ChatGPT automatic translator",
+      "message": "Prompt Genie: ChatGPT automatic translator"
+   },
+   "auto_translate": {
+      "message": "Automatic translation"
+   },
+   "auto_translate_activate": {
+      "message": "Enable automatic translation"
+   },
+   "bing_login_complete": {
+      "message": "You're logged in!! 🎉\u003Cbr />Now go back to the chat window and hit refresh"
+   },
+   "bing_need_login": {
+      "message": "You need to log in to use Bing Chat. Press the \u003Cbr />\u003Cb>Start Chatting\u003C/b> button to log in to your Microsoft account"
+   },
+   "cancel": {
+      "message": "Cancel"
+   },
+   "detect_language": {
+      "message": "Language detection"
+   },
+   "find_web_result": {
+      "message": "Finding search results..."
+   },
+   "genie_guide_1": {
+      "message": "Genie User Guide"
+   },
+   "genie_guide_2": {
+      "message": "Updates"
+   },
+   "genie_guide_3": {
+      "message": "New feature requests"
+   },
+   "genie_guide_4": {
+      "message": "Community"
+   },
+   "hide_web_access_prompt": {
+      "message": "Collapse prompt with search results"
+   },
+   "include_web_access": {
+      "message": "Include search results"
+   },
+   "include_web_access_detail": {
+      "message": "Improve accuracy by including search results"
+   },
+   "option_auto": {
+      "message": "Detecting language"
+   },
+   "option_de": {
+      "message": "German"
+   },
+   "option_en": {
+      "message": "English"
+   },
+   "option_es": {
+      "message": "Spanish"
+   },
+   "option_fr": {
+      "message": "French"
+   },
+   "option_hi": {
+      "message": "Hindi"
+   },
+   "option_id": {
+      "message": "Indonesian"
+   },
+   "option_it": {
+      "message": "Italian"
+   },
+   "option_ja": {
+      "message": "Japanese"
+   },
+   "option_ko": {
+      "message": "Korean"
+   },
+   "option_pt": {
+      "message": "Portuguese"
+   },
+   "option_ru": {
+      "message": "Russian"
+   },
+   "option_th": {
+      "message": "Thai"
+   },
+   "option_ur": {
+      "message": "Urdu"
+   },
+   "option_vi": {
+      "message": "Vietnamese"
+   },
+   "option_zh_Cn": {
+      "message": "Chinese (Simplified)"
+   },
+   "option_zh_Tw": {
+      "message": "Chinese (Traditional)"
+   },
+   "prompt_genie_disabled": {
+      "message": "Plugins and code interpreters cannot be used with Genie"
+   },
+   "prompt_genie_right_click": {
+      "message": "Tap the Genie icon on the left to invoke Genie"
+   },
+   "prompt_genie_toolbar_1": {
+      "message": "A conflict with WebChatGPT has been detected.\nHow about using Genie's web search result inclusion feature?\nTap the Genie icon next to the input bar!"
+   },
+   "prompt_genie_toolbar_2": {
+      "message": "Automatic translation"
+   },
+   "prompt_genie_toolbar_3": {
+      "message": "When on, automatically translate typed prompts"
+   },
+   "prompt_genie_translate": {
+      "message": "Let the prompt genie do the translation for you!"
+   },
+   "require_developer": {
+      "message": "Ask a developer"
+   },
+   "require_function": {
+      "message": "If there's a feature you'd like to see, please request it"
+   },
+   "search_language": {
+      "message": "Language search"
+   },
+   "share_export_all": {
+      "message": "Export all"
+   },
+   "share_export_description": {
+      "message": "Select the conversation you want to export as a web page."
+   },
+   "share_export_n": {
+      "message": "Export $1 conversation"
+   },
+   "share_export_title": {
+      "message": "Export conversation"
+   },
+   "share_info": {
+      "message": "The ability to save all or part of a conversation as a webpage"
+   },
+   "share_modal_description": {
+      "message": "Prompt description"
+   },
+   "share_modal_export": {
+      "message": "Export conversation"
+   },
+   "share_modal_title": {
+      "message": "Export conversation"
+   },
+   "share_title": {
+      "message": "$1 Shared by prompt genie"
+   },
+   "show_web_access_prompt": {
+      "message": "Show prompt with search results appended"
+   },
+   "translate_button": {
+      "message": "Translated questions"
+   },
+   "translate_language_choose": {
+      "message": "Please select a language to translate"
+   },
+   "translate_language_select": {
+      "message": "Select a translation language"
+   },
+   "translate_now": {
+      "message": "Translate now"
+   },
+   "translate_now_cancel": {
+      "message": "Canceling a translation"
+   },
+   "translate_preview": {
+      "message": "Preview your translation"
+   },
+   "translate_preview_detail": {
+      "message": "Preview the translation results so you can edit them"
+   },
+   "translate_result": {
+      "message": "Translation results"
+   },
+   "view_version_info": {
+      "message": "View version info"
+   },
+   "web_result_word_count": {
+      "message": "The prompt for including search results is 200 characters or less."
+   },
+   "webchatgpt_info": {
+      "message": "When using WebChatGPT, Prompt Genie's,\nauto-translate questions doesn't work.\nPlease use Ctrl Enter to translate the question.\n(MacOS users use Cmd + ⏎)"
+   }
+}

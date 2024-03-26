@@ -1,0 +1,205 @@
+{
+   "answer_language": {
+      "message": "답변받을 언어"
+   },
+   "answer_translate": {
+      "message": "답변 번역"
+   },
+   "answer_translate_detail": {
+      "message": "답변을 번역합니다."
+   },
+   "appDesc": {
+      "description": "ChatGPT 쓸 때 질문을 영어로 번역해 주고, 답변도 한글로 번역해 주는 번역기입니다.",
+      "message": "ChatGPT 쓸 때 질문을 영어로 번역해 주고, 답변도 한글로 번역해 주는 번역기입니다."
+   },
+   "appName": {
+      "description": "프롬프트 지니: ChatGPT 자동 번역기",
+      "message": "프롬프트 지니: ChatGPT 자동 번역기"
+   },
+   "auto_translate": {
+      "message": "자동 번역"
+   },
+   "auto_translate_activate": {
+      "message": "자동 번역을 활성화합니다."
+   },
+   "bing_login_complete": {
+      "message": "로그인이 완료되었어요! 🎉\u003Cbr />이제 채팅창으로 돌아가서 새로고침을 눌러주세요."
+   },
+   "bing_need_login": {
+      "message": "Bing Chat 사용을 위해서는 로그인이 필요해요\u003Cbr />\u003Cb>Start Chatting\u003C/b> 버튼을 눌러 마이크로소프트 계정으로 로그인해주세요."
+   },
+   "cancel": {
+      "message": "취소"
+   },
+   "detect_language": {
+      "message": "언어 감지"
+   },
+   "find_web_result": {
+      "message": "검색결과 찾는중..."
+   },
+   "genie_guide_1": {
+      "message": "지니 사용 가이드"
+   },
+   "genie_guide_2": {
+      "message": "업데이트 소식"
+   },
+   "genie_guide_3": {
+      "message": "새로운 기능 요청"
+   },
+   "genie_guide_4": {
+      "message": "커뮤니티"
+   },
+   "hide_web_access_prompt": {
+      "message": "검색결과가 추가된 프롬프트 접기"
+   },
+   "include_web_access": {
+      "message": "웹 연결"
+   },
+   "include_web_access_detail": {
+      "message": "검색 엔진 결과를 포함하여 정확도를 높입니다"
+   },
+   "option_auto": {
+      "message": "언어감지중"
+   },
+   "option_de": {
+      "message": "독일어"
+   },
+   "option_en": {
+      "message": "영어"
+   },
+   "option_es": {
+      "message": "스페인어"
+   },
+   "option_fr": {
+      "message": "프랑스어"
+   },
+   "option_hi": {
+      "message": "힌디어"
+   },
+   "option_id": {
+      "message": "인도네시아어"
+   },
+   "option_it": {
+      "message": "이탈리아어"
+   },
+   "option_ja": {
+      "message": "일본어"
+   },
+   "option_ko": {
+      "message": "한국어"
+   },
+   "option_pt": {
+      "message": "포르투갈어"
+   },
+   "option_ru": {
+      "message": "러시아어"
+   },
+   "option_th": {
+      "message": "태국어"
+   },
+   "option_ur": {
+      "message": "우르두어"
+   },
+   "option_vi": {
+      "message": "베트남어"
+   },
+   "option_zh_Cn": {
+      "message": "중국어(간체)"
+   },
+   "option_zh_Tw": {
+      "message": "중국어(번체)"
+   },
+   "prompt_genie_disabled": {
+      "message": "플러그인, 코드 인터프리터에서는 지니를 사용할 수 없어요"
+   },
+   "prompt_genie_right_click": {
+      "message": "좌측 지니 아이콘을 눌러 지니를 불러보세요"
+   },
+   "prompt_genie_toolbar_1": {
+      "message": "WebChatGPT와 충돌이 감지되었습니다.\n지니의 웹 검색결과 포함 기능을 사용하시면 어떨까요?\n입력창 옆의 지니 아이콘을 눌러보세요!"
+   },
+   "prompt_genie_toolbar_2": {
+      "message": "자동 번역"
+   },
+   "prompt_genie_toolbar_3": {
+      "message": "켜져 있으면 입력한 프롬프트를 자동으로 번역합니다."
+   },
+   "prompt_genie_translate": {
+      "message": "프롬프트 지니가 자동으로 번역을 해드릴게요!"
+   },
+   "require_developer": {
+      "message": "개발자에게 요청"
+   },
+   "require_function": {
+      "message": "원하는 기능이 있다면 요청해주세요."
+   },
+   "search_language": {
+      "message": "언어 검색"
+   },
+   "share_export_all": {
+      "message": "전체 대화 내보내기"
+   },
+   "share_export_description": {
+      "message": "웹페이지 형태로 내보내고 싶은 대화를 선택하세요."
+   },
+   "share_export_n": {
+      "message": "$1개 대화 내보내기"
+   },
+   "share_export_title": {
+      "message": "대화 내보내기"
+   },
+   "share_info": {
+      "message": "대화의 전체 혹은 일부를 웹페이지 형태로 저장하는 기능입니다."
+   },
+   "share_modal_description": {
+      "message": "프롬프트 설명"
+   },
+   "share_modal_export": {
+      "message": "대화 내보내기"
+   },
+   "share_modal_title": {
+      "message": "대화 내보내기"
+   },
+   "share_title": {
+      "message": "$1 프롬프트 지니로 공유됨"
+   },
+   "show_web_access_prompt": {
+      "message": "검색결과가 추가된 프롬프트 보기"
+   },
+   "translate_button": {
+      "message": "번역해서 질문"
+   },
+   "translate_language_choose": {
+      "message": "번역할 언어를 선택해주세요"
+   },
+   "translate_language_select": {
+      "message": "번역 언어 선택"
+   },
+   "translate_now": {
+      "message": "지금 번역하기"
+   },
+   "translate_now_cancel": {
+      "message": "번역 취소하기"
+   },
+   "translate_preview": {
+      "message": "번역 미리보기"
+   },
+   "translate_preview_detail": {
+      "message": "입력한 문장을 번역하여 미리 확인합니다"
+   },
+   "translate_result": {
+      "message": "번역결과"
+   },
+   "view_version_info": {
+      "message": "버전정보 보기"
+   },
+   "web_access_region": {
+      "message": "kr-kr"
+   },
+   "web_result_word_count": {
+      "message": "검색결과 포함하기의 프롬프트수는 200자 이하입니다."
+   },
+   "webchatgpt_info": {
+      "message": "WebChatGPT 사용 중에는 프롬프트 지니의,\n질문 자동번역이 동작하지 않습니다.\nCtrl Enter 로 질문을 번역하세요.\n(MacOS 사용자는 Cmd + ⏎)"
+   }
+}

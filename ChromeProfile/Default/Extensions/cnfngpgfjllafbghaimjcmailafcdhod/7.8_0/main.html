@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/popper.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+		<style type="text/css">
+			body {
+				width: 400px;
+				margin: 0px;
+				padding: 5px;
+			}
+			textarea {
+				resize: none;
+			}
+			button.rightbutton {
+				float: right;
+			}
+			#box_char {
+			  display: none; /* Initially hide the 'box_char' div */
+			}
+			#btn_ad, #btn_ad_left {
+				background-color: white; /* 흰색 배경 */
+				color: black; /* 검은색 텍스트 */
+				padding: 0; /* 패딩 */
+				border: none; /* 경계선 추가 */
+				border-radius: 4px; /* 둥근 모서리 */
+				cursor: pointer; /* 마우스 오버 시 커서 변경 */
+				margin-right: 10px; /* 오른쪽 여백 */
+				font-size: 10px;
+				margin: 5px 0px 5px 0px;
+			}
+			#btn_ad {
+				float: right;
+			}
+
+			#btn_ad:hover, #btn_ad_left:hover {
+				background-color: #f8f8f8; /* 마우스 오버 시 배경색 변경 */
+			}
+		</style>
+    </head>
+    <body>
+		<div class="bg-light rounded border w-100" style="padding:10px;margin:0px;">
+			<div>
+				<strong>__MSG_string001__(v<span id="span_version">0</span>)</strong>
+				<button id="btn_show_click" class="rightbutton btn bg-warning btn-sm">__MSG_string014__</button>
+			</div>
+			<hr/>
+			<div>
+				<label><input type="radio" name="radio_always" id="radio_always_1" value="1" />__MSG_string002__</label>
+				<label><input type="radio" name="radio_always" id="radio_always_0" value="0" checked />__MSG_string003__</label>
+				<button id="btn_save" class="btn btn-sm bg-success text-white">__MSG_string004__</button>
+				<span style="color:red;">__MSG_string009__</span>
+			</div>
+			<div id="div_click" class="bg-info rounded" style="padding:5px;"><button id="btn_click" class="btn bg-danger text-white btn-sm">__MSG_string005__</button>(<font color="yellow"><span id="span_shortcut">__MSG_string008__</span></font>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="btn_shortcut" class="btn btn-sm bg-warning">__MSG_string006__</button><br/><span id="lbl_message" class="text-white">__MSG_string007__</span></div>
+		</div>
+		<div id="box_char" class="bg-light rounded border w-100" style="padding:10px;margin:5px 0 0 0;">
+			<div>
+				<strong>__MSG_string014__</strong>
+				<button id="btn_hide_click" class="rightbutton btn bg-danger text-white btn-sm">__MSG_string015__</button>
+			</div>
+			<hr/>
+			<div>
+				__MSG_string011__ : <span id="cnt_char1">0</span><br>
+				__MSG_string012__ : <span id="cnt_char2">0</span><br>
+				<textarea id="mystr" style="width:100%; height: 100px;" placeholder="__MSG_string013__"></textarea>
+			</div>
+		</div>
+		<div style="padding:0px;margin:0; text-align: left;">
+			<button id="btn_ad">[__MSG_string016__]</button>
+		</div>
+    </body>
+</html>
