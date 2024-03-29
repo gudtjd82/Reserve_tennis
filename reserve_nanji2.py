@@ -1,7 +1,6 @@
 import pyperclip
 import pyautogui as pg
 import time
-import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -14,6 +13,7 @@ from cp_msg import *
 from card_pay import *
 from preprocessing import *
 from captchaCracker import *
+from check_click import *
 
 # 아이디 비번
 # user_id = 'gudgh82'
@@ -35,7 +35,6 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     # 스크린샷 저장 위치
     reserve_path = "./images/reserve1.png"
     time_path = "./images/time1.png"
-
 
     if ready_time != '0':
         time_options = webdriver.ChromeOptions()
@@ -72,10 +71,12 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     # "로그인" 버튼 클릭
     # try: 
     state_elem = driver.find_element(By.CSS_SELECTOR, '#header > div.container > div > div.state > a')
-
+    
     # 로그인
     if state_elem.get_attribute('text') == '로그인':
         state_elem.click()
+        driver.implicitly_wait(3)
+
         elem_id = driver.find_element(By.ID, 'userid')
         pyperclip.copy(user_id)
         elem_id.click()
@@ -114,6 +115,7 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     # 예약하기 클릭
     i = 0
     while True:
+        driver.implicitly_wait(3)
         reserve_button = driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/form[2]/div[1]/div[2]/div/div/a[1]')
         if i == 7:
             exit("이미 다 찼음")
@@ -162,27 +164,48 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
 
     # captcha 새로고침
     driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div > div.captcha_attr > button.btn_refresh').click()
+    driver.implicitly_wait(3)
 
-    # captcha 캡쳐하고 열기
-    captcha_region = (899, 1272, 236, 88)
+    if pg.size() == (1680, 1050):
+        captcha_x, captcha_y = get_click_position()
+        captcha_region = ((captcha_x, captcha_y, 236, 88))
+    else:
+        captcha_region = (899, 1272, 236, 88)
+        
+
+    # captcha 캡쳐하고 답 얻기
     dirName = 'reserve_nanji'
-    captcha_path = captureCaptcha(dirName, captcha_region)
-    # os.system(f"open {captcha_path}")
+    while true:
+        captcha_path = captureCaptcha(dirName, captcha_region)
+        # os.system(f"open {captcha_path}")
+        answer = result_img(captcha_path)
+        print(f"answer: {answer}")
+        time.sleep(1)
 
-    answer = result_img(captcha_path)
-    print(f"answer: {answer}")
+        # 답 입력
+        pyperclip.copy(answer)
+        driver.find_element(By.CSS_SELECTOR, '#simplecaptcha_answer').click()
+        ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
+
+        # 인증 확인 클릭
+        time.sleep(0.3)
+        try:
+            driver.find_element(By.CSS_SELECTOR, '#btn_captcha_accept').click()
+            break
+        except:
+            while True:
+                try:
+                    alert = driver.switch_to.alert
+                    alert.accept()
+                    break
+                except:
+                    pass
+            # captcha 새로고침
+            driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div > div.captcha_attr > button.btn_refresh').click()
+            time.sleep(0.5)
+            pass
+
     time.sleep(1)
-
-    pyperclip.copy(answer)
-
-    driver.find_element(By.CSS_SELECTOR, '#simplecaptcha_answer').click()
-
-    ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
-
-    # 인증 확인 클릭
-    time.sleep(0.3)
-    driver.find_element(By.CSS_SELECTOR, '#btn_captcha_accept').click()
-    time.sleep(0.5)
 
     # 예약하기 클릭
     driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.right_box > div > div.common_btn_box > button').click()
@@ -199,10 +222,10 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     print("done!")
 
 if __name__ == "__main__":
-    user_id = "dydwn1124"
+    user_id = "gudgh82"
     url = "https://url.kr/2dmhzr"
-    date = "calendar_20240315"
-    time_selections = "2"
+    date = "calendar_20240404"
+    time_selections = "3"
     ready_time = '0'
     start_time = '0'
     reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time)
