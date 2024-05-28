@@ -5,6 +5,8 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 from time_check import *
 from screenshot import *
 from get_location import *
@@ -34,11 +36,6 @@ options = Options()
 options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 driver = webdriver.Chrome(options=options)
 # driver.maximize_window()
-# driver.implicitly_wait(3)
-# driver.get(seonam_url)
-# time.sleep(2)
-# state_elem = driver.find_element(By.CSS_SELECTOR, '#header > div.container > div > div.state > a')
 
-# captcha 캡쳐하고 열기
-reserve_button = driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/form[2]/div[1]/div[2]/div/div/a[1]')
-print(reserve_button.text)
+pg.click(915, 1372)
+pg.click(915, 1372)

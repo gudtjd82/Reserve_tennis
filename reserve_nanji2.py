@@ -64,9 +64,12 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     driver.implicitly_wait(3)
 
     driver.get(seonam_url)
-    # "팝업 닫기" 버튼 클릭
-    # driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div[1]/div/div[2]/button').click()
     driver.implicitly_wait(3)
+    # 팝업 닫기
+    try:
+        driver.find_element(By.CSS_SELECTOR, '#wrapper > div.pop_wrap.pop_system_161.open > div > div.btn_box > button > span').click()
+    except:
+        pass
 
     # "로그인" 버튼 클릭
     # try: 
@@ -80,14 +83,18 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
         elem_id = driver.find_element(By.ID, 'userid')
         pyperclip.copy(user_id)
         elem_id.click()
+        time.sleep(0.5)
         ActionChains(driver).key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND).perform()
         ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
+        time.sleep(0.5)
 
         elem_pw = driver.find_element(By.ID, 'userpwd')
         pyperclip.copy(user_pw)
         elem_pw.click()
+        time.sleep(0.5)
         ActionChains(driver).key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND).perform()
         ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
+        time.sleep(0.5)
 
         driver.find_element(By.CSS_SELECTOR, '#addUserForm > div.login_inp_box > button').click()
         driver.implicitly_wait(3)
@@ -105,7 +112,15 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     driver.implicitly_wait(3)
 
     # 팝업 닫기
-    driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div[1]/div/div[2]/button').click()
+    i = 0
+    while i < 10:
+        try:
+            driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div[1]/div/div[2]/button').click()
+            break;
+        except:
+            driver.refresh()
+            i +=1
+            pass
     # 시간 스크린샷
     # time_path = full_screenshot(driver_time, time_path)
 
@@ -117,7 +132,7 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     while True:
         driver.implicitly_wait(3)
         reserve_button = driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/form[2]/div[1]/div[2]/div/div/a[1]')
-        if i == 7:
+        if i == 15:
             exit("이미 다 찼음")
         elif reserve_button.text == "예약하기":
             reserve_button.click()
@@ -150,65 +165,109 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
             # reserve_path = full_screenshot(driver, reserve_path)
             # time_path = full_screenshot(driver_time, time_path)
 
+    # 이용 인원
+    driver.implicitly_wait(3)
+    driver.find_element(By.CSS_SELECTOR, '#user_cnt_area > div > div:nth-child(1) > div > div > div > button.user_plus').click()
+
     # 동의합니다
     try:
         driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(6) > div.total_agree > span > label').click()
     except:
         exit("\"동의합니다\" 버튼이 없습니다.")
 
-    # 이용 인원
-    driver.find_element(By.CSS_SELECTOR, '#user_cnt_area > div > div:nth-child(1) > div > div > div > button.user_plus').click()
-
     # 인증번호 발송
     # driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div:nth-child(2) > button').click()
 
+    # 이메일 입력
+    pyperclip.copy("gudtjd82")
+    driver.find_element(By.CSS_SELECTOR, '#form_email1').click()
+    time.sleep(0.2)
+    ActionChains(driver).key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND).perform()
+    ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
+    time.sleep(0.2)
+
+    pyperclip.copy("naver.com")
+    driver.find_element(By.CSS_SELECTOR, '#form_email2').click()
+    time.sleep(0.2)
+    ActionChains(driver).key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND).perform()
+    ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
+    time.sleep(0.2)
+
+
     # captcha 새로고침
-    driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div > div.captcha_attr > button.btn_refresh').click()
-    driver.implicitly_wait(3)
+    # driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div > div.captcha_attr > button.btn_refresh').click()
+    # driver.implicitly_wait(3)
+    # driver.find_element(By.CSS_SELECTOR, '#simplecaptcha_answer').click()
+    # time.sleep(0.1)
 
-    if pg.size() == (1680, 1050):
-        captcha_x, captcha_y = get_click_position()
-        captcha_region = ((captcha_x, captcha_y, 236, 88))
-    else:
-        captcha_region = (899, 1272, 236, 88)
-        
-
-    # captcha 캡쳐하고 답 얻기
-    dirName = 'reserve_nanji'
-    while true:
-        captcha_path = captureCaptcha(dirName, captcha_region)
-        # os.system(f"open {captcha_path}")
-        answer = result_img(captcha_path)
-        print(f"answer: {answer}")
-        time.sleep(1)
-
-        # 답 입력
-        pyperclip.copy(answer)
-        driver.find_element(By.CSS_SELECTOR, '#simplecaptcha_answer').click()
-        ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
-
-        # 인증 확인 클릭
-        time.sleep(0.3)
+    # CAPTCHA 클릭
+    if pg.size() == (1680, 1050):   # Mac Monitor
+        pg.click(474, 252)
+        time.sleep(0.2)
+        pg.click(474, 252)
+        # captcha_region = (459, 908, 236, 88)
+        # captcha_x, captcha_y = get_click_position()
+        # captcha_region = ((captcha_x, captcha_y, 236, 88))
+    else:       # Desktop Monitor
+        pg.click(913, 252)
+        time.sleep(0.2)
+        pg.click(913, 252)
+        # captcha_region = (899, 1272, 236, 88)
+    
+    while True:
         try:
-            driver.find_element(By.CSS_SELECTOR, '#btn_captcha_accept').click()
+            alert = driver.switch_to.alert
+            alert.accept()
             break
         except:
-            while True:
-                try:
-                    alert = driver.switch_to.alert
-                    alert.accept()
-                    break
-                except:
-                    pass
-            # captcha 새로고침
-            driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div > div.captcha_attr > button.btn_refresh').click()
-            time.sleep(0.5)
             pass
 
-    time.sleep(1)
+    # # captcha 캡쳐하고 답 얻기
+    # dirName = 'reserve_nanji'
+    # while True:
+    #     captcha_path = captureCaptcha(dirName, captcha_region)
+    #     # os.system(f"open {captcha_path}")
+    #     answer = result_img(captcha_path)
+    #     print(f"answer: {answer}")
+    #     time.sleep(0.5)
 
-    # 예약하기 클릭
-    driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.right_box > div > div.common_btn_box > button').click()
+    #     # 답 입력
+    #     pyperclip.copy(answer)
+    #     driver.find_element(By.CSS_SELECTOR, '#simplecaptcha_answer').click()
+    #     ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
+
+    #     # 인증 확인 클릭
+    #     time.sleep(0.3)
+    #     try:
+    #         driver.find_element(By.CSS_SELECTOR, '#btn_captcha_accept').click()
+    #         driver.implicitly_wait(3)
+    #         break
+    #     except:
+    #         while True:
+    #             try:
+    #                 alert = driver.switch_to.alert
+    #                 alert.accept()
+    #                 break
+    #             except:
+    #                 pass
+    #         # captcha 새로고침
+    #         driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.left_box > div:nth-child(5) > table > tbody > tr:nth-child(7) > td > div > div.captcha_attr > button.btn_refresh').click()
+    #         time.sleep(0.5)
+    #         pass
+
+    # time.sleep(0.5)
+
+    ## 예약하기 클릭
+    # book_btn_elem = driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.right_box > div.info_wrap > ul')
+    # #macro4 > button
+    # try:
+    #     real_btn = book_btn_elem.find_element(By.CLASS_NAME, 'active')
+    # except:
+    #     exit("예약하기 버튼을 찾지 못함")
+    # if real_btn is not None:
+    #     real_btn.click()
+    # else:
+    #     exit("예약하기 버튼을 찾지 못함")
 
     # alert 처리
     while finish:
@@ -222,8 +281,8 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     print("done!")
 
 if __name__ == "__main__":
-    user_id = "gudgh82"
-    url = "https://url.kr/2dmhzr"
+    user_id = "gudtjd82"
+    url = "https://url.kr/9gj2yk"
     date = "calendar_20240404"
     time_selections = "3"
     ready_time = '0'
