@@ -18,6 +18,7 @@ from check_click import *
 # 아이디 비번
 # user_id = 'gudgh82'
 user_pw = 'tjdgus02@@'
+user_pw2 = 'gud3735@@'
 
 # 네이비즘 주소
 navyism_url = 'http://time.navyism.com/?host=https%3A%2F%2Fyeyak.seoul.go.kr%2Fweb%2Fmain.do'
@@ -89,7 +90,10 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
         time.sleep(0.5)
 
         elem_pw = driver.find_element(By.ID, 'userpwd')
-        pyperclip.copy(user_pw)
+        if user_id != 'gudgh82':
+            pyperclip.copy(user_pw)
+        else:
+            pyperclip.copy(user_pw2)
         elem_pw.click()
         time.sleep(0.5)
         ActionChains(driver).key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND).perform()
@@ -130,26 +134,34 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     # 예약하기 클릭
     i = 0
     while True:
-        driver.implicitly_wait(3)
         reserve_button = driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/form[2]/div[1]/div[2]/div/div/a[1]')
+        driver.implicitly_wait(3)
+
         if i == 15:
             exit("이미 다 찼음")
-        elif reserve_button.text == "예약하기":
+        elif reserve_button.text == "예약하기" or reserve_button.get_attribute('class') == "common_btn blue":
+            print("예약하기!")
             reserve_button.click()
             break
         else:
-            time.sleep(2)
-            print("새로고침")
-            driver.refresh()
-            driver.implicitly_wait(3)
-            # 팝업 닫기
-            driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div[1]/div/div[2]/button').click()
-            i += 1
+            reserve_button.click()
+            driver.implicitly_wait(2)
+            try:
+                reserve_button.click()
+                time.sleep(0.5)
+                print("새로고침")
+                driver.refresh()
+                driver.implicitly_wait(3)
+                # 팝업 닫기
+                driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div[1]/div/div[2]/button').click()
+                i += 1
+            except:
+                break
 
     driver.implicitly_wait(5)
 
     # 다음달로 넘기기
-    driver.find_element(By.CSS_SELECTOR, '#calendar > div > button').click()
+    # driver.find_element(By.CSS_SELECTOR, '#calendar > div > button').click()
 
     # 시간 선택
     driver.find_element(By.ID, date).click()
@@ -181,17 +193,15 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     # 이메일 입력
     pyperclip.copy("gudtjd82")
     driver.find_element(By.CSS_SELECTOR, '#form_email1').click()
-    time.sleep(0.2)
+    time.sleep(0.1)
     ActionChains(driver).key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND).perform()
     ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
-    time.sleep(0.2)
 
     pyperclip.copy("naver.com")
     driver.find_element(By.CSS_SELECTOR, '#form_email2').click()
-    time.sleep(0.2)
+    time.sleep(0.1)
     ActionChains(driver).key_down(Keys.COMMAND).send_keys('a').key_up(Keys.COMMAND).perform()
     ActionChains(driver).key_down(Keys.COMMAND).send_keys('v').key_up(Keys.COMMAND).perform()
-    time.sleep(0.2)
 
 
     # captcha 새로고침
@@ -201,16 +211,13 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
     # time.sleep(0.1)
 
     # CAPTCHA 클릭
+    driver.switch_to.window(driver.current_window_handle)
     if pg.size() == (1680, 1050):   # Mac Monitor
-        pg.click(474, 252)
-        time.sleep(0.2)
         pg.click(474, 252)
         # captcha_region = (459, 908, 236, 88)
         # captcha_x, captcha_y = get_click_position()
         # captcha_region = ((captcha_x, captcha_y, 236, 88))
     else:       # Desktop Monitor
-        pg.click(913, 252)
-        time.sleep(0.2)
         pg.click(913, 252)
         # captcha_region = (899, 1272, 236, 88)
     
@@ -257,17 +264,17 @@ def reserve_nanji2(user_id, url, date, time_selections, ready_time, start_time):
 
     # time.sleep(0.5)
 
-    ## 예약하기 클릭
-    # book_btn_elem = driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.right_box > div.info_wrap > ul')
-    # #macro4 > button
-    # try:
-    #     real_btn = book_btn_elem.find_element(By.CLASS_NAME, 'active')
-    # except:
-    #     exit("예약하기 버튼을 찾지 못함")
-    # if real_btn is not None:
-    #     real_btn.click()
-    # else:
-    #     exit("예약하기 버튼을 찾지 못함")
+    # 예약하기 클릭
+    book_btn_elem = driver.find_element(By.CSS_SELECTOR, '#aform > div.book_box > div.right_box > div.info_wrap > ul')
+    #macro4 > button
+    try:
+        real_btn = book_btn_elem.find_element(By.CLASS_NAME, 'active')
+    except:
+        exit("예약하기 버튼을 찾지 못함")
+    if real_btn is not None:
+        real_btn.click()
+    else:
+        exit("예약하기 버튼을 찾지 못함")
 
     # alert 처리
     while finish:

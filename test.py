@@ -37,5 +37,28 @@ options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 driver = webdriver.Chrome(options=options)
 # driver.maximize_window()
 
-pg.click(915, 1372)
-pg.click(915, 1372)
+i = 0
+while True:
+    reserve_button = driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/form[2]/div[1]/div[2]/div/div/a[1]')
+    driver.implicitly_wait(3)
+
+    if i == 15:
+        exit("이미 다 찼음")
+    elif reserve_button.text == "예약하기" or reserve_button.get_attribute('class') == "common_btn blue":
+        print("예약하기!")
+        reserve_button.click()
+        break
+    else:
+        reserve_button.click()
+        driver.implicitly_wait(2)
+        try:
+            reserve_button.click()
+            time.sleep(0.5)
+            print("새로고침")
+            driver.refresh()
+            driver.implicitly_wait(3)
+            # 팝업 닫기
+            driver.find_element(By.XPATH, '/html/body/div/div[3]/div[2]/div/div[1]/div/div[2]/button').click()
+            i += 1
+        except:
+            break

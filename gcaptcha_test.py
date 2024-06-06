@@ -57,14 +57,14 @@ def main():
     # CAPTCHA 클릭
     if pg.size() == (1680, 1050):   # Mac Monitor
         pg.click(474, 252)
-        time.sleep(0.2)
+        time.sleep(0.4)
         pg.click(474, 252)
         # captcha_region = (459, 908, 236, 88)
         # captcha_x, captcha_y = get_click_position()
         # captcha_region = ((captcha_x, captcha_y, 236, 88))
     else:       # Desktop Monitor
         pg.click(913, 252)
-        time.sleep(0.2)
+        time.sleep(0.4)
         pg.click(913, 252)
         # captcha_region = (899, 1272, 236, 88)
     
